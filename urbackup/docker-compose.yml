@@ -4,7 +4,10 @@ services:
   urbackup:
     image: uroni/urbackup-server:latest
     container_name: urbackup
-    restart: unless-stopped
+    restart: always
+    ports:
+      - "55414:55414"
+      - "55415:55415"
     environment:
       - PUID=1000 # Enter the UID of the user who should own the files here
       - PGID=1000  # Enter the GID of the user who should own the files here
